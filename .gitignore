@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.log
+music_favorites.json
+unresolved_bpms.json

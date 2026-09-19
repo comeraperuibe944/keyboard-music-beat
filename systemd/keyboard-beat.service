@@ -1,0 +1,16 @@
+[Unit]
+Description=Keyboard Music Beat Visualizer (ESC vs NumLock Alternating LEDs)
+After=multi-user.target keyboard-ripple.service numlock-power.service
+
+[Service]
+Type=simple
+Environment="PYTHONUNBUFFERED=1"
+Environment="PIPEWIRE_RUNTIME_DIR=/run/user/1000"
+ExecStart=/usr/bin/python3 /home/user/antigravity/radiant-goodall/keyboard-music-beat.py
+ExecStopPost=/usr/bin/python3 /home/user/antigravity/radiant-goodall/keyboard-music-beat.py --restore
+Restart=always
+RestartSec=3
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
